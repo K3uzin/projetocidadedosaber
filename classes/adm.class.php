@@ -2,8 +2,10 @@
 
 class Adm extends user{
     
+    private $id
     private $access_level; /* nivel de acesso do adm, a qual sera dividido em 3 niveis, sende referenciado  de 1 a 3, sendo o 1 o mais baixo e 3 o mais alto*/
-
+    private $senha
+    private $email
     /* classe criada para validar as inscriçoes de usuarios */
     public function set_access_level(/*restrição de classe de adm*/$Adm,$nivel){
         if($Adm->access_level == 3){
@@ -58,14 +60,18 @@ class Adm extends user{
             $stmt->execute()
         }
     }
-    public function close_turma(/*restrição de classe turma*/ $Turma){
+    public function close_turma(/*restrição de classe turma*/$turma, $Turma_id){
 
 
         if($this->access_level == 3){
             
-
-            $turma->set_turma_status()
-
+            if(!isset($turma->id)){
+                
+                $turma->set_turma_status($turma_id,false);
+            }else{
+               
+                exit(echo"turma ja esta fechada");
+            }
         }
     }
     public function get_adm_id(/*restricão de classe adm*/$Adm,$nome){
@@ -74,7 +80,7 @@ class Adm extends user{
             $stmt = $conexao->prepare("SELECT cod_usuario FROM usuario WHERE nome_usuario = $nome");
             $stmt->execute();
             if($stmt->get_result() == null){
-                exit(echo"adm invalido");
+                exit("adm invalido");
             
             }else{
                 $Adm->id = $stmt->get_result();
@@ -83,6 +89,43 @@ class Adm extends user{
 
         }
     }
+    public function set_new_Adm($Adm,$nome,$nomeB,$email,$senha,$nivel){
+
+        if($Adm->access_level == 3){
+
+            $nome = new Adm;
+            $nome->nome = $nomeB;
+            $nome->email = $email;
+            $nome->senha = $senha;
+            $nome->access_level = $nivel_de_acesso;
+            
+            $stmt->prepare("SELECT nome FROM adm WHERE nome = $nome->nome");
+            $stmt->execute()
+            $result = $stmt->get_result()
+            if($result =! null){
+                exit("nome ja extiste");
+            }
+            $stmt->prepare("SELECT email FROM adm WHERE email = $nome->email");
+            $stmt->execute()
+            $result = $stmt->get_result()
+            if($result =! null){
+                exit("email ja extiste");
+            }
+            $stmt->prepare("SELECT senha FROM adm WHERE senha = $nome->senha");
+            $stmt->execute()
+            $result = $stmt->get_result()
+            if($result =! null){
+                exit("nome ja extiste");
+            }
+            $stmt->execute()
+            $stmt->get_result()
+            if()
+            $stmt = $conexao->prepare("INSERT $nome->nome,$nome->email,$nome->senha,$nome->access_level into adm");
+            $stmt->bind_param("s,s,i,i"$nome->nome,$nome->email,$nome->senha,$nome->access_level);
+            $stmt->execute();
+        }
+    }
+    
 
     
 
