@@ -1,1 +1,77 @@
+    body {
+        margin: 0;
+    }
 
+    /* Estilos do cabeçalho */
+    header {
+        background-color: #003366;
+        /* define a cor do fundo do cabeçalho como azul escuro */
+        height: 140px;
+        /*defiine a altura do cabeçalhoo como 140 pixels */
+        display: flex;
+        /* define  o cabeçalho como um contêiner flexível */
+        align-items: center;
+        /* alinha os itens verticalmente no centro do cabeçalho */
+        justify-content: space-between;
+        /* distribui o espaço dísponivel entre os elementos do cabeçalho */
+        color: #fff;
+        /* define a cor do texto do cabeçalho como branco */
+        font-family: Verdana, sans-serif;
+        /* define a fonte do etxto no cabeçalho como Verdana */
+        font-size: 24px;
+        /* define o tamanho do texto no cabeçalho como 24 pixels */
+        position: relative;
+        /* define a posição do cabeçalho como relativa */
+    }
+
+
+    /* Estilos do logotipo */
+    .logo {
+        position: absolute;
+        /* define o posicionamento do logotipo como absoluto */
+        left: 25px;
+        /* define a posição do logotipo em relação à esquerda como 25 pixels */
+    }
+
+    .logo img {
+        width: 100px;
+        /* define a largura da imagem do logotipo como 100 pixels */
+    }
+
+
+    /* Estilos do conteúdo do cabeçalho */
+    .header-content {
+        position: absolute;
+        /* define o posicionamento do conteúdo do cabeçalho como absoluto */
+        left: 50%;
+        /* define a posição do conteúdo do cabeçalho em relação à esquerda como 50% */
+        transform: translateX(-50%);
+        /* centraliza o conteúdo horizontalmente usando uma transformação de translação */
+    }
+
+
+    /* Estilos do título do projeto */
+    .projeto {
+        font-size: 50px;
+        /* define o tamanho do texto do título do projeto como 50 pixels */
+        text-decoration: none;
+        /* remove a decoração de texto do link de "Projeto Cidade do Saber[index]" [usado para tirar o sublinhado do texto] */
+        color: #fff;
+        /* define a cor do texto do link de "Projeto Cidade do Saber[index]" como branco */
+    }
+
+
+    /* Estilos do link de ajuda */
+    .ajuda {
+        position: absolute;
+        /* define o posicionamento do link de ajuda como absoluto */
+        right: 10px;
+        /* define a posição do link de ajuda em relação à direita como 10 pixels */
+    }
+
+    .ajuda a {
+        text-decoration: none;
+        /* remove a decoração de texto do link de ajuda [usado para tirar o sublinhado do texto] */
+        color: #fff;
+        /* define a cor do texto do link de ajuda como branco */
+    }
