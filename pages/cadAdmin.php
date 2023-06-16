@@ -20,7 +20,7 @@
 
 
             <div class="login-box">
-                <form action="#" method="POST">
+                <form action="../backend_pages/cadAdminB.php" method="POST">
                     <label for="name">Nome:</label>
                     <input type="text" id="name" name="name" placeholder="Digite seu nome">
 
