@@ -1,6 +1,6 @@
 <?php
 
-//require_once("../Database/conexao.php");
+require_once("../Database/conexao.php");
 require_once("../classes/adm.class.php");
 
 if(!isset($_POST)){
