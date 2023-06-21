@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Database/conexao.php");
+//require_once("../Database/conexao.php");
 require_once("../classes/adm.class.php");
 
 if(!isset($_POST)){
@@ -18,11 +18,11 @@ if(!isset($_POST)){
 
     if($rows_num == 0){
         
-        exit("nome ou usurio errado");
+        exit("nome ou usuario errado");
 
     }else{
         
-        $veri_senha = password_verify($Adm_senha,$row["senha"])
+        $veri_senha = password_verify($Adm_senha,$row["senha"]);
         if(!$veri_senha){
 
             exit("senha errada");     
