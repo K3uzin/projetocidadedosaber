@@ -3,8 +3,8 @@
 class Adm extends user{
     
     private $access_level; /* nivel de acesso do adm, a qual sera dividido em 3 niveis, sende referenciado  de 1 a 3, sendo o 1 o mais baixo e 3 o mais alto*/
-    private $senha
-    private $email
+    private $senha;
+    private $email;
     /* classe criada para validar as inscriçoes de usuarios */
     public function set_access_level(/*restrição de classe de adm*/$Adm,$nivel){
         if($Adm->access_level == 3){
@@ -21,11 +21,11 @@ class Adm extends user{
             $user->get_attbs();
             $stmt = $conexao->prepare("UPDATE inscricao SET stat = $user->stutus WHERE cod_inscricao=$user->id");
             $stmt->bind_param("b",$user->status);
-            $stmt->execute()
+            $stmt->execute();
 
     }
 
-    public function invalidate(/*restrição de classe de user*/$user){
+    //public function invalidate(/*restrição de classe de user*/$user){
 
         if($this->access_level >= 2){
 
@@ -52,11 +52,11 @@ class Adm extends user{
         $stmt = $conexao->prepare("SELECT nivel_de_acesso FROM  Adm WHERE cod_usuario = $Adm->id");
         $stmt->execute();
         
-        if($this->access_level > $stmt->get_result();){
+        if($this->access_level > $stmt->get_result()){
             $restrict = 0
             $stmt->prepare("UPDATE usuario SET nivel_de_acesso = $restrict WHERE cod_usuario = $Adm->id");
-            $Stmt->bind_param("i",$restrict)
-            $stmt->execute()
+            $Stmt->bind_param("i",$restrict);
+            $stmt->execute();
         }
     }
     public function close_turma(/*restrição de classe turma*/$turma, $Turma_id){
@@ -69,7 +69,7 @@ class Adm extends user{
                 $turma->set_turma_status($turma_id,false);
             }else{
                
-                exit("turma ja esta fechada");
+                exit("turma já está fechada");
             }
         }
     }
@@ -79,7 +79,7 @@ class Adm extends user{
             $stmt = $conexao->prepare("SELECT cod_usuario FROM usuario WHERE nome_usuario = $nome");
             $stmt->execute();
             if($stmt->get_result() == null){
-                exit("adm invalido");
+                exit("adm inválido");
             
             }else{
                 $Adm->id = $stmt->get_result();
@@ -115,19 +115,20 @@ class Adm extends user{
             $nome->access_level = $nivel_de_acesso;
             
             $stmt->prepare("SELECT nome FROM adm WHERE nome = $nome->nome");
-            $stmt->execute()
-            $result = $stmt->get_result()
+            $stmt->execute();
+            $result = $stmt->get_result();
             if($result =! null){
                 exit("nome ja extiste");
             }
             $stmt->prepare("SELECT email FROM adm WHERE email = $nome->email");
-            $stmt->execute()
-            $result = $stmt->get_result()
+            $stmt->execute();
+            $result = $stmt->get_result();
             if($result =! null){
                 exit("email ja extiste");
             }
             $stmt = $conexao->prepare("INSERT $nome->nome,$nome->email,$nome->senha,$nome->access_level into Adm");
-            $stmt->bind_param("s,s,i,i"$nome->nome,$nome->email,$nome->senha,$nome->access_level);
+            $stmt->bind_param("s,s,i,
+            i"$nome->nome,$nome->email,$nome->senha,$nome->access_level);
             $stmt->execute();
         }
     }
