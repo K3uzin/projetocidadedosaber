@@ -28,7 +28,7 @@ Class User{
     /* função criada para dar get em todos os atributos basicos da classe user */
     public function get_attbs($name,$cpf,$rg,$age,$phone){
       
-        $base_attbs = array[];
+        $base_attbs = array();
         if(!$this->name){
             $base_attbsv = $this->name;
         }
