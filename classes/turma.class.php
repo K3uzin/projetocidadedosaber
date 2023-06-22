@@ -6,7 +6,7 @@
         private $nome;
         private $id_turma;
         private $senhas_disponoveis;
-        private $Status;
+        private $status;
         
         public function set_turma_status($id_turma,$status){
 
