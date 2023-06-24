@@ -1,98 +1,105 @@
-body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2;
-}
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f2f2f2;
+    }
 
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .admin-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Verdana, sans-serif;
+        border: 1px solid #003366;
+        border-radius: 5px;
+        padding: 10px 30px;
+        /* Aumenta o padding horizontalmente */
+        margin-bottom: 20px;
+    }
 
-.admin-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1px;
-    font-family: Verdana, sans-serif;
-    border: 1px solid #003366;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
+    .admin-details p {
+        margin-top: 0;
+        width: 200px;
+        height: 3px;
+        text-align: center;
+        padding: 0 10px;
+        /* Adiciona espaçamento interno (borda) na horizontal */
+    }
 
-.admin-details label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.admin-details p {
-    margin-top: 0;
-    width: 200px;
-    height: 3px;
-    text-align: center;
-}
+    .admin-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Verdana, sans-serif;
+        border: 1px solid #003366;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 
-.login-box {
-    width: 300px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    .admin-details label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
-.login-box label {
-    display: block;
-    margin-bottom: 10px;
-    font-family: Verdana, sans-serif;
-}
+    .login-box {
+        width: 300px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.login-box input[type="text"],
-.login-box input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: Verdana, sans-serif;
-}
+    .login-box label,
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-family: Verdana, sans-serif;
+    }
 
-.login-box select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: Verdana, sans-serif;
-}
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box select {
+        border: none;
+        border-radius: 0;
+    }
 
-.login-box button {
-    width: 100%;
-    padding: 10px;
-    background-color: #003366;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Verdana, sans-serif;
-    margin-top: 10px; /* Adiciona margem superior */
-}
+    .login-box input#id,
+    .login-box input#senha {
+        border-left: 10px solid #ccc;
+        border-right: 10px solid #ccc;
+    }
 
-.login-box p {
-    font-size: 12px;
-    text-align: center;
-    font-family: Verdana, sans-serif;
-}
+    .login-box button {
+        width: 100%;
+        padding: 10px;
+        background-color: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
 
-.login-box p a {
-    text-decoration: none;
-    color: #003366;
-    font-family: Verdana, sans-serif;
-}
+    .login-box p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .login-box p a {
+        text-decoration: none;
+        color: #003366;
+    }
