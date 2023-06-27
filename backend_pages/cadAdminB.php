@@ -15,6 +15,7 @@ if(!isset($_POST)){
     $access_level = $_POST['level'];
 
     if($nome == null){
+        // exibe mensagem de erro em pagina
         echo "<script>
                 window.onload = function() {
                     alert('Nome vazio');
@@ -24,6 +25,7 @@ if(!isset($_POST)){
         exit();
     }
     if(strlen($nome) <= 2){
+          // exibe mensagem de erro em pagina
         echo "<script>
                 window.onload = function() {
                     alert('Nome curto');
@@ -33,6 +35,7 @@ if(!isset($_POST)){
         exit();
     }
     if(strlen($nome) >= 45){
+         // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Nome longo');
@@ -43,6 +46,7 @@ if(!isset($_POST)){
     }
     $name_test = test_input($nome);
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
+        // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Caracteres especiais não são permitidos');
@@ -52,6 +56,7 @@ if(!isset($_POST)){
         exit();
     }
     if($email == null){
+         // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Campo de e-mail vazio');
@@ -62,6 +67,7 @@ if(!isset($_POST)){
     }
     $email_test = test_input($email);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('E-mail inválido');
@@ -71,6 +77,7 @@ if(!isset($_POST)){
         exit();
     }
     if($senha == null){
+        // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Senha vazia');
@@ -80,6 +87,7 @@ if(!isset($_POST)){
         exit();
     }
     if(strlen($senha) <= 6){
+        // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Senha curta');
@@ -89,6 +97,7 @@ if(!isset($_POST)){
         exit();
     }
     if(strlen($senha) >= 20){
+        // exibe a mensagem de erro 
         echo "<script>
                 window.onload = function() {
                     alert('Senha longa');
