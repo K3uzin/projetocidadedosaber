@@ -28,6 +28,7 @@ if (!isset($_POST)) {
             echo "<script>
                 window.onload = function() {
                     alert('Senha incorreta');
+                      history.back(); //retorna a pagina anterior
                 };
             </script>";
             exit();
