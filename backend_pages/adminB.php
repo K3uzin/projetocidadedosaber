@@ -15,12 +15,12 @@ if (!isset($_POST)) {
     $rows_num = mysqli_num_rows($result);
 
     if ($rows_num == 0) {
-        echo "<p style='color: red;'>Nome de usuário incorreto</p>";
+        echo "<script>alert('Nome de usuário incorreto');</script>";
         exit();
     } else {
         $veri_senha = password_verify($Adm_senha, $row["senha"]);
         if (!$veri_senha) {
-            echo "<p style='color: red;'>Senha incorreta</p>";
+            echo "<script>alert('Senha incorreta');</script>";
             exit();
         } else {
             $Adm = new Adm;
