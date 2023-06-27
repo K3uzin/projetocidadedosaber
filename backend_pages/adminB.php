@@ -18,6 +18,7 @@ if (!isset($_POST)) {
         echo "<script>
                 window.onload = function() {
                     alert('Nome de usuário incorreto');
+                    history.back(); //retorna a pagina anterior
                 };
             </script>";
         exit();
