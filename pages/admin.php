@@ -49,7 +49,7 @@
         <form action="../backend_pages/AdminB.php" method="POST">
             <!-- Formulário -->
             <label for="nome">ID:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            <input type="text" id="nome" name="nome" placeholder="Digite seu ID">
 
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password" placeholder="Digite sua senha">
