@@ -15,20 +15,22 @@ if (!isset($_POST)) {
     $rows_num = mysqli_num_rows($result);
 
     if ($rows_num == 0) {
+        // exibe mensagem de erro
         echo "<script>
                 window.onload = function() {
                     alert('Nome de usuário incorreto');
-                    history.back(); //retorna a pagina anterior
+                    history.back();
                 };
             </script>";
         exit();
     } else {
         $veri_senha = password_verify($Adm_senha, $row["senha"]);
         if (!$veri_senha) {
+             // exibe mensagem de erro
             echo "<script>
                 window.onload = function() {
                     alert('Senha incorreta');
-                      history.back(); //retorna a pagina anterior
+                      history.back(); 
                 };
             </script>";
             exit();
