@@ -19,7 +19,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Nome vazio');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -29,7 +29,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Nome curto');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -39,7 +39,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Nome longo');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -50,7 +50,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Caracteres especiais não são permitidos');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -60,7 +60,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Campo de e-mail vazio');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -71,7 +71,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('E-mail inválido');
-                    history.back(); //retorna a pagina anterior
+                    history.back();
                 };
             </script>";
         exit();
@@ -81,7 +81,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Senha vazia');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -91,7 +91,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Senha curta');
-                    history.back(); //retorna a pagina anterior 
+                    history.back(); 
                 };
             </script>";
         exit();
@@ -101,7 +101,7 @@ if(!isset($_POST)){
         echo "<script>
                 window.onload = function() {
                     alert('Senha longa');
-                    history.back(); //retorna a pagina anterior
+                    history.back(); 
                 };
             </script>";
         exit();
