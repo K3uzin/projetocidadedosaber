@@ -3,53 +3,56 @@ session_start();
 
 require("../database/conexao.php");
 require("../classes/adm.class.php");
-$Adm = $_SESSION['Adm']
+$Adm = $_SESSION['Adm'];
+
 if(!isset($_POST)){
     header("../pages/cadAdmin.php");
-}else{
-   
+} else {
     $nome = $_POST['nome'];
-    $nomeb = $_POST['nome']
+    $nomeb = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $access_level = $_POST['level'];
 
     if($nome == null){
-      exit("nome vazio");
+        echo "<script>alert('Nome vazio');</script>";
+        exit();
     }
-    if(strlen($nome) <= 2)
-    {
-      exit("nome curto");
+    if(strlen($nome) <= 2){
+        echo "<script>alert('Nome curto');</script>";
+        exit();
     }
     if(strlen($nome) >= 45){
-      exit("nome longo");
+        echo "<script>alert('Nome longo');</script>";
+        exit();
     }
     $name_test = test_input($nome);
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
-        exit("caracteres especiais não são permitidos");
+        echo "<script>alert('Caracteres especiais não são permitidos');</script>";
+        exit();
     }
     if($email == null){
-      exit ("campo de email vazo");
+        echo "<script>alert('Campo de e-mail vazio');</script>";
+        exit();
     }
     $email_test = test_input($email);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        exit("email invalido")
+        echo "<script>alert('E-mail inválido');</script>";
+        exit();
     }
     if($senha == null){
-      exit("senha");
+        echo "<script>alert('Senha vazia');</script>";
+        exit();
     }
     if(strlen($senha) <= 6){
-      exit("senha curto");
+        echo "<script>alert('Senha curta');</script>";
+        exit();
     }
     if(strlen($senha) >= 20){
-      exit("senha longo");
+        echo "<script>alert('Senha longa');</script>";
+        exit();
     }
 
-    $Adm->set_new_Adm($Adm,$nome,$nomeb,$email,$senha,$access_level);
-
-
+    $Adm->set_new_Adm($Adm, $nome, $nomeb, $email, $senha, $access_level);
 }
-
-
-
-
+?>
