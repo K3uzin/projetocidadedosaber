@@ -1,45 +1,57 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--  <link rel="stylesheet" href="../css/style-login.css">
-        <link rel="stylesheet" href="../css/style-cadAdmin.css"> -->
-        <title>Login</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style-table.css">
+    <title>Minha Página</title>
+</head>
 
-    <body>
-        <div class="login-container">
-            <div class="admin-details">
-                <label>ID:</label>
-                <p><?php echo isset($_POST['id']) ? $_POST['id'] : ''; ?></p>
-                <label>Senha:</label>
-                <p><?php echo isset($_POST['password']) ? $_POST['password'] : ''; ?></p>
-            </div>
+<body>
+    <?php require '../includes/header.php'; ?>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>DATA ENTRADA NA FILA</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>17</td>
+                <td>Lucas</td>
+                <td>10/06/2023</td>
+                <td>Aguardando</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>João Vitor Machado</td>
+                <td>05/06/2023</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Maria do Carmo de Jesus</td>
+                <td>03/06/2023</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>Rosangela dos Santos Brito</td>
+                <td>02/06/2023</td>
+                <td>Aprovado</td>
+            </tr>
+        </tbody>
+    </table>
 
 
-            <div class="login-box">
-                <form action="#" method="POST">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" placeholder="Digite seu nome">
 
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" placeholder="Digite seu email">
+    <!-- O restante do conteúdo da página -->
 
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha">
+</body>
 
-                    <label for="phone">Telefone:</label>
-                    <input type="text" id="phone" name="phone" placeholder="Digite seu telefone">
-
-                    <label for="level">Nível:</label>
-                    <select id="level" name="level">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-
-                    <button type="submit">Cadastrar Administrador</button>
-                </form>
+</html>
