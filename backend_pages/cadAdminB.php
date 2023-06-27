@@ -15,15 +15,15 @@ if(!isset($_POST)){
     $access_level = $_POST['level'];
 
     if($nome == null){
-        echo "<script>alert('Nome vazio');</script>";
+        echo "<script>alert('Nome está vazio');</script>";
         exit();
     }
     if(strlen($nome) <= 2){
-        echo "<script>alert('Nome curto');</script>";
+        echo "<script>alert('Nome muito curto');</script>";
         exit();
     }
     if(strlen($nome) >= 45){
-        echo "<script>alert('Nome longo');</script>";
+        echo "<script>alert('Nome muito longo');</script>";
         exit();
     }
     $name_test = test_input($nome);
@@ -32,7 +32,7 @@ if(!isset($_POST)){
         exit();
     }
     if($email == null){
-        echo "<script>alert('Campo de e-mail vazio');</script>";
+        echo "<script>alert('Campo de está e-mail vazio');</script>";
         exit();
     }
     $email_test = test_input($email);
@@ -41,7 +41,7 @@ if(!isset($_POST)){
         exit();
     }
     if($senha == null){
-        echo "<script>alert('Senha vazia');</script>";
+        echo "<script>alert('Senha está vazia');</script>";
         exit();
     }
     if(strlen($senha) <= 6){
