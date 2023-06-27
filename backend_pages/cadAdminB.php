@@ -15,41 +15,77 @@ if(!isset($_POST)){
     $access_level = $_POST['level'];
 
     if($nome == null){
-        echo "<script>alert('Nome está vazio');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Nome vazio');
+                };
+            </script>";
         exit();
     }
     if(strlen($nome) <= 2){
-        echo "<script>alert('Nome muito curto');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Nome curto');
+                };
+            </script>";
         exit();
     }
     if(strlen($nome) >= 45){
-        echo "<script>alert('Nome muito longo');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Nome longo');
+                };
+            </script>";
         exit();
     }
     $name_test = test_input($nome);
     if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
-        echo "<script>alert('Caracteres especiais não são permitidos');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Caracteres especiais não são permitidos');
+                };
+            </script>";
         exit();
     }
     if($email == null){
-        echo "<script>alert('Campo de está e-mail vazio');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Campo de e-mail vazio');
+                };
+            </script>";
         exit();
     }
     $email_test = test_input($email);
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        echo "<script>alert('E-mail inválido');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('E-mail inválido');
+                };
+            </script>";
         exit();
     }
     if($senha == null){
-        echo "<script>alert('Senha está vazia');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Senha vazia');
+                };
+            </script>";
         exit();
     }
     if(strlen($senha) <= 6){
-        echo "<script>alert('Senha curta');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Senha curta');
+                };
+            </script>";
         exit();
     }
     if(strlen($senha) >= 20){
-        echo "<script>alert('Senha longa');</script>";
+        echo "<script>
+                window.onload = function() {
+                    alert('Senha longa');
+                };
+            </script>";
         exit();
     }
 
