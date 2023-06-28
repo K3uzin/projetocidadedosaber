@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <?php require '../includes/header.php'; ?>
     <!-- O restante do conteúdo da página -->
 
 </body>
