@@ -12,12 +12,11 @@
     <?php require '../includes/header.php'; ?>
     <h1> Como podemos ajudar ? </h1>
 
-    <div>
-        <button> Ajuda com inscrições </button>
-    </div>
-
-    <div>
-        <button> Ajuda com cadastro </button>
+    <div class="container">
+        <ul>
+             <li class="lista" > Qual tempo de validade da senha ?</li>
+             <li class="lista" > Tirei senha, mas a vagas disponíveis já se encerreram o que faço agora ?</li>
+        </ul>
     </div>
     <!-- O restante do conteúdo da página -->
 
