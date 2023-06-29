@@ -1,160 +1,84 @@
-.c1 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.c1 th {
+/* Estilos para o título da página */
+.title-section {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-family: Verdana, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #003366;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.category-table {
+    width: calc(100% / 7 - 20px);
+    height: 120px;
+    margin: 10px;
+    border-collapse: separate;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.category-table th {
+    text-align: center;
     background-color: #003366;
     color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.c2 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c2 th {
-    background-color: #003366;
+.category-table a {
     color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    transition: color 0.3s ease;
 }
 
-.c3 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+    .category-section {
+        margin-top: 60px;
+    }
 
-.c3 th {
-    background-color: #003366;
-    color: #fff;
-}
+    .category-table {
+        width: calc(48% - 20px);
+        height: 100px;
+        margin: 10px;
+    }
 
-.c4 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
+    .category-table th {
+        font-size: 16px;
+    }
 
-.c4 th {
-    background-color: #003366;
-    color: #fff;
-}
-.c5 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
+    .category-table a {
+        font-size: 14px;
+        line-height: 20px;
+    }
 
-.c5 th {
-    background-color: #003366;
-    color: #fff;
-}
+    .category-table:nth-child(2n) {
+        margin-right: 20px;
+    }
 
-.c6 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c6 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c7 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c7 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c8 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c8 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c9 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c9 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c10 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c10 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c11 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c11 th {
-    background-color: #003366;
-    color: #fff;
-}
-.c12 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c12 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c13 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c13 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.c14 {
-    width: 13%;
-    border-collapse: collapse;
-    font-family: Verdana, sans-serif;
-}
-
-.c14 th {
-    background-color: #003366;
-    color: #fff;
-}
-
-.p1{
-    align-items: center;
-}
-
-a{
- color: #fff;
- text-decoration: none;
+    
 }
