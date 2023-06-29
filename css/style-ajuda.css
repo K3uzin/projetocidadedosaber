@@ -26,8 +26,23 @@
         margin: 16px;
         border: 1px solid #ccc;
         padding: 18px;
+        cursor: pointer;
     }
 
     .resposta {
         display: none;
+    }
+
+    .seta{
+        width: 2px;
+        height: 2px;
+        right: 2px;
+        display: flex;
+        }
+    p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: normal;
+        color: #7e7e7e;
+        font-size: small;
+
     }
