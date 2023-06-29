@@ -1,5 +1,5 @@
 <?php 
-    require_once("Databese/conexao.php");
+    require_once("Database/conexao.php");
 
     if($role == "adm"){
 
