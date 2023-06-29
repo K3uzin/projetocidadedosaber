@@ -12,154 +12,268 @@
     <?php require '../includes/header.php'; ?>
 
     <!-- O restante do conteúdo da página -->
+    <div class="title-section">
+        <h1 class="page-title">CURSOS DISPONÍVEIS</h1>
+    </div>
 
-<div>
-    <table class="c1">
+    <div class="category-section">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Bateria<br>A partir de 12 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Bateria <br> A partir de 12 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Teclado<br>De 12 a 40 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Violão<br>De 12 a 40 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-    <table class="c2">
-        
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Teclado <br> De 12 a 40 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Canto<br>A partir de 10 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Teatro<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <table class="c3">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Flauta<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Violão <br> De 12 a 40 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Violino<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
-        </thead>
+    <div class="category-section">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Viola<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <table class="c4">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Trompa<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Canto <br>  A partir de 10 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Trompete<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
-        <table class="c5">
-        
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Teatro <br> De 07 a 30 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Saxofone<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Contrabaixo<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <table class="c6">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Violoncelo<br>De 07 a 30 anos</a></th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Flauta <br> De 07 a 30 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th><a href="inscricao.php">Ballet<br>A partir de 06 anos</a></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="category-section">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Ballet Que Dança<br>A partir de 15 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Ballet Fitness<br>A partir de 17 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        <table class="c7">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Dança Contemporânea<br>A partir de 6 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Violino <br>  De 07 a 30 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Dança de Salão<br>A partir de 15 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Dança do Ventre<br>A partir de 15 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-</div>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Pilates<br>A partir de 17 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Zumba<br>A partir de 15 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="category-section">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Teakwondo<br>8 a 17 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-<div class="p1">
-    
-    <table class="c8">
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Futsal<br>6 a 17 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        <thead>
-            <br> <br> <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Viola <br> De 07 a 30 anos</th>
-                
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Karatê<br>6 a 17 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Natação<br>A partir de 8 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-    <table class="c9">
-        
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Trompa <br> De 07 a 30 anos</th>     
-            </tr>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Hidroginástica<br>A partir de 18 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        </thead>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Capoeira<br>A partir de 6 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
 
-        <table class="c10">
-
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Trompete <br> De 07 a 30 anos</th>     
-            </tr>
-
-        </thead>
-
-        <table class="c11">
-
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Saxofone <br>  De 07 a 30 anos</th>     
-            </tr>
-
-        </thead>
-        <table class="c12">
-        
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Contrabaixo <br> De 07 a 30 anos</th>     
-            </tr>
-
-        </thead>
-
-        <table class="c13">
-
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Violoncelo <br> De 07 a 30 anos</th>     
-            </tr>
-
-        </thead>
-
-        <table class="c14">
-
-        <thead>
-            <br> <br> 
-            <tr> 
-                <th> <a href="inscricao.php"> Ballet <br> A partir de 06 anos</th>     
-            </tr>
-
-        </thead>
-
-</div>
+        <table class="category-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="inscricao.php">Inglês<br>A partir de 6 anos</a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
 </body>
 
-</html>  
+</html>
