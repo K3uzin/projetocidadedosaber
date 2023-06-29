@@ -1,35 +1,33 @@
-h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-}
 
-button{
-    color: #fff;
-    width: 200px;
-    height: 100px;
-    background-color: #003366;
-}
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+    }
 
-.container{
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-    margin-right: 20px;
-}
+    .container {
+        display: flex;
+        justify-content: center;
+        margin: 30px;
+        margin-right: 20px;
+    }
 
-ul{
-    align-content: left;
-    background-color: #fff;
-    list-style-position: inside;
-    list-style-type: none;
-    padding-left: 0%;
-}
+    ul {
+        align-content: left;
+        background-color: #fff;
+        list-style-position: inside;
+        list-style-type: none;
+        padding-left: 0%;
+    }
 
-.lista{
-    box-sizing: border-box;
-    font-size:large;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin:16px;
-}
+    .lista {
+        box-sizing: border-box;
+        font-size: large;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 16px;
+        border: 1px solid #ccc;
+        padding: 18px;
+    }
 
-
+    .resposta {
+        display: none;
+    }
