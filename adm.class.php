@@ -130,7 +130,7 @@ class Adm extends user{
             $stmt->execute();
             $result = $stmt->get_result();
             if($result =! null){
-                exit("email ja extiste");
+                exit("email ja existe");
             }
             $stmt = $conexao->prepare("INSERT $nome->nome,$nome->email,$nome->senha,$nome->access_level into Adminstrador");
             $stmt->bind_param("s,s,i,i"$nome->nome,$nome->email,$nome->senha,$nome->access_level);
