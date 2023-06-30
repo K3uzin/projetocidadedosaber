@@ -11,7 +11,7 @@
     $sql_senha_turnoff = ("UPDATE senha 
     SET senha.situacao = 'indisponivel'
     FROM senha INNER JOIN incricao ON inscricao.cod_senha = senha.cod_senha");
-    $sql_senha_check = ("SELECT cod_senha  FROM senha wHERE situacao = 'disponivel'");
+    $sql_senha_check = ("SELECT cod_senha  FROM senha WHERE situacao = 'disponivel'");
     $sql_notificao = ("SELECT nome AND email FROM inscricao WHERE notificao = 'N'")
 
     while($result = mysqli_fatch_assoc($sql_senha_check)){
@@ -26,7 +26,8 @@
         $nome = $result['nome'];
         $email = $result['email'];
         $assunto = "senha";
-        $mensage = "parabens $nome! (mensagem de que foi aceito na fila)";
+        $mensage = "Parabéns $nome! (Você foi já está inserido na nossa fila de espera, acompanhe sua posição atual 
+        em nosso portal)";
         $remetente = "cidadedosaber@gmail.com";
         mail($email,$senha,$menssagen,$remetente);
     }
