@@ -36,7 +36,7 @@ class Adm extends user{
             $stmt->execute();
         }
     }
-    /* funçaira requerer reavaliação*/
+    /* função irá requerer reavaliação*/
     public function anular_inscriçao(/*restrição de classe user*/$user,$id_inscriçao){
       
         if($this->access_level >= 2){
@@ -46,7 +46,7 @@ class Adm extends user{
             $stmt = $conexao->prepare("UPDATE inscricao SET validacao = $use $user->stutus WHERE cod_inscricao=$user->id");
         } 
     }
-    // função responsavel por restringir o acesso de um adm ao sistema
+    //função responsavel por restringir o acesso de um adm ao sistema
     public function restric_access(/*restriçao de classe adm*/$Adm,$nome){
 
         $Adm->get_Adm_id($Adm,$nome);
@@ -144,6 +144,6 @@ class Adm extends user{
 
     
 }
-}
+
 
 
