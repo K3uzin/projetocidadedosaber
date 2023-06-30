@@ -16,9 +16,12 @@
       </a>
     </div>
     <div class="header-content">
-      <a href="../pages/index.php" class="projeto">Cidade do Saber</a>
+      <a href="../pages/index.php" class="projeto">Cidade do Saber
+        </a>
     </div>
-    <div class="ajuda"><a href="../pages/ajuda.php">Ajuda</a></div>
+    <div class="ajuda"><a href="../pages/ajuda.php">Ajuda
+    <img src="../img/ajuda.svg" class="logoajuda">
+    </a></div>
   </header>
 </body>
 
