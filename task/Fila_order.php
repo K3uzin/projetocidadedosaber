@@ -25,7 +25,7 @@
 
         $nome = $result['nome'];
         $email = $result['email'];
-        $assunto = "senha";
+        $assunto = "Senha";
         $mensage = "Parabéns $nome! (Você foi já está inserido na nossa fila de espera, acompanhe sua posição atual 
         em nosso portal)";
         $remetente = "cidadedosaber@gmail.com";
