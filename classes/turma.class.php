@@ -25,12 +25,12 @@
         }
         public function get_turma_id(/*restrição de classe turma*/$turma,$turma_nome){
 
-            if(!isset($Turma->id_turma)){
+            if(!isset($turma->id_turma)){
                 
                 $stmt = $conexao->prepare("SELECT cod_turma FROM turma WHERE nome_turma = $turma_nome");
                 $stmt->execute();
                 if($stmt->get_result() == null){
-                     exit(echo"turma invalido");
+                     exit("turma invalido");
                     
                 }else{
                     $turma->id_turma = $stmt->get_result();
