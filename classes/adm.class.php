@@ -1,15 +1,15 @@
 <?php
 
-class Adm extends user{
+class Adm extends User{
     
-    private $access_level; /* nivel de acesso do adm, a qual sera dividido em 3 niveis, sende referenciado  de 1 a 3, sendo o 1 o mais baixo e 3 o mais alto*/
+    private $access_level; /* nivel de acesso do adm, a qual sera dividido em 3 niveis, sendo referenciado  de 1 a 3, sendo o 1 o mais baixo e 3 o mais alto*/
     private $senha;
     private $email;
     /* classe criada para validar as inscriçoes de usuarios */
     public function set_access_level(/*restrição de classe de adm*/$Adm,$nivel){
         if($Adm->access_level == 3){
             $Adm->access_level = $nivel;
-            $stmt = $conexao->prepare("INSERT $Adm->access_level INTO nivel_de_acesso FROM adiminstrador WHERE nome=$adm");
+            $stmt = $conexao->prepare("INSERT $Adm->access_level INTO nivel_de_acesso FROM administrador WHERE nome=$Adm");
             $stmt->bind_param("i",$Adm->access_level);
          }
     }
@@ -19,7 +19,7 @@ class Adm extends user{
             
             $user->status = true;
             $user->get_attbs();
-            $stmt = $conexao->prepare("UPDATE inscricao SET stat = $user->stutus WHERE cod_inscricao=$user->id");
+            $stmt = $conexao->prepare("UPDATE inscricao SET stat = $user->status WHERE cod_inscricao=$user->id");
             $stmt->bind_param("b",$user->status);
             $stmt->execute();
 
@@ -43,7 +43,7 @@ class Adm extends user{
 
             $user->inscricao[$curso_inscrito] = null;
             $user->get_attbs();
-            $stmt = $conexao->prepare("UPDATE inscricao SET validacao = $use $user->stutus WHERE cod_inscricao=$user->id");
+            $stmt = $conexao->prepare("UPDATE inscricao SET validacao = $user->stutus WHERE cod_inscricao=$user->id");
         } 
     }
     //função responsavel por restringir o acesso de um adm ao sistema
@@ -55,7 +55,7 @@ class Adm extends user{
         
         if($this->access_level > $stmt->get_result()){
             $restrict = 0
-            $stmt->prepare("UPDATE adminsitrador SET nivel_de_acesso = $restrict WHERE cod_administrador = $Adm->id");
+            $stmt->prepare("UPDATE administrador SET nivel_de_acesso = $restrict WHERE cod_administrador = $Adm->id");
             $Stmt->bind_param("i",$restrict);
             $stmt->execute();
         }
@@ -89,7 +89,7 @@ class Adm extends user{
     public function get_adm_id(/*restricão de classe adm*/$Adm,$nome){
 
         if(!isset($Adm->id)){
-            $stmt = $conexao->prepare("SELECT cod_adiministrador FROM administrador WHERE nome = $nome");
+            $stmt = $conexao->prepare("SELECT cod_administrador FROM administrador WHERE nome = $nome");
             $stmt->execute();
             if($stmt->get_result() == null){
                 exit("adm inválido");
@@ -103,16 +103,16 @@ class Adm extends user{
     //função reponsavel por acessar todos os atributos da classe adm
     public function get_Adm_att(/*restrição de classe adm*/ $Adm){
         
-        $stmt = $conexao->prepare("SELECT nome from Adminstrador WHERE cod_adminstrador=$Adm->id");
-        $stmt->excecute();
+        $stmt = $conexao->prepare("SELECT nome from Administrador WHERE cod_administrador=$Adm->id");
+        $stmt->execute();
         $Adm->nome = $stmt->get_result();
          
-        $stmt = $conexao->prepare("SELECT email from Adminstrador WHERE cod_adminstrador=$Adm->id");
-        $stmt->excecute();
+        $stmt = $conexao->prepare("SELECT email from Administrador WHERE cod_administrador=$Adm->id");
+        $stmt->execute();
         $Adm->email = $stmt->get_result();
         
-        $stmt = $conexao->prepare("SELECT nivel_de_acesso from Administrador WHERE cod_adminstrador=$Adm->id");
-        $stmt->excecute();
+        $stmt = $conexao->prepare("SELECT nivel_de_acesso from Administrador WHERE cod_administrador=$Adm->id");
+        $stmt->execute();
         $Adm->access_level = $stmt->get_result();
     }
     // função reponsavel cadastrar novos adm 
@@ -126,24 +126,15 @@ class Adm extends user{
             $nome->senha = $senha;
             $nome->access_level = $nivel_de_acesso;
             
-            $stmt->prepare("SELECT email FROM adminstrador WHERE email = $nome->email");
+            $stmt->prepare("SELECT email FROM administrador WHERE email = $nome->email");
             $stmt->execute();
             $result = $stmt->get_result();
-            if($result =! null){
+            if($result != null){
                 exit("email ja extiste");
             }
-            $stmt = $conexao->prepare("INSERT $nome->nome,$nome->email,$nome->senha,$nome->access_level into Adminstrador");
+            $stmt = $conexao->prepare("INSERT $nome->nome,$nome->email,$nome->senha,$nome->access_level INTO Administrador");
             $stmt->bind_param("s,s,i,i"$nome->nome,$nome->email,$nome->senha,$nome->access_level);
             $stmt->execute();
         }
     }
-    
-
-    
-
-
-    
 }
-
-
-
