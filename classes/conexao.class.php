@@ -1,7 +1,7 @@
 <?php
  
 if(!isset($conexao)){
-    ini_set ("display errors",1);
+    ini_set("display errors",1);
     $conexao = new mysqli("localhost","root","","atende");
 
     if($conexao->connect_error){
