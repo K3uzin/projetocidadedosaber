@@ -41,10 +41,16 @@
         $data = $result['data_inscricao'];
         if(function data_expire_check($data,15)){
             
-            $mensage = "olá $nome, os alunos que retiraram senha para realizar inscrição em nossos cursos têm 15 dias para se inscreverem,
-            e infelizmente o prazo da sua senha de 15 dias expirou, logo a sua senha retirada no site do cidade do cidade saber no dia $data
-            não é mais valida! 
-            <br> Caso ainda tenha interesse na vaga, por favor, retire outra senha e aguarde na fila de espera";
+            $mensage = "<Prezado(a) $nome,
+            <br>Gostaríamos de informar que a senha que você havia obtido anteriormente na fila de espera expirou. 
+                Caso você ainda tenha interesse em participar do nosso curso, será necessário realizar a inscrição novamente e aguardar na fila de espera.
+                Sabemos que o processo de espera pode ser desafiador, mas estamos empenhados em oferecer uma oportunidade igualitária para todos os estudantes. 
+                Agradecemos sua compreensão e paciência.
+                <br>Para realizar uma nova inscrição, acesse nosso portal e siga as instruções fornecidas. Assim que você concluir o processo, sua senha será gerada e você será incluído novamente na fila de espera.
+                Lembramos que, devido à alta demanda, não podemos garantir um prazo exato para o recebimento da senha. No entanto, estamos trabalhando para agilizar o processo e oferecer a todos os alunos uma experiência de qualidade.
+                Fique atento(a) às atualizações em nosso portal, onde você encontrará informações sobre sua posição atual na fila de espera e outras novidades relacionadas ao curso.
+                <br>Agradecemos pelo seu interesse em nossa instituição e esperamos que em breve possamos lhe proporcionar a oportunidade de participar do nosso curso</br>
+                <br>Atenciosamente, Cidade do saber.</br>";
             $assunto = "expiração da senha";
             $remetente = "cidadedosaber@gmail.com";
             mail($email,$assunto,$mensagen,$remetente);
