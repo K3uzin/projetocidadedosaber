@@ -9,270 +9,59 @@
 </head>
 
 <body>
-    <?php require '../includes/header.php'; ?>
+    <div class="menu">
+        <h2 class="title">Inscrição cursos 2023</h2>
+        <h2 class="subtitle">É fácil, rápido e grátis</h2>
+        <hr>
+        <h2 class="course-title">SELECIONE O CURSO:</h2>
+        <div class="course-list">
+            <ul>
+                <?php
+                $cursosDisponiveis = array(
+                    'bateria',
+                    'teclado',
+                    'violao',
+                );
 
-    <!-- O restante do conteúdo da página -->
-    <div class="title-section">
-        <h1 class="page-title">CURSOS DISPONÍVEIS</h1>
+                $cursosExibidos = array(
+                    'bateria' => 'Bateria',
+                    'teclado' => 'Teclado',
+                    'violao' => 'Violão',
+                );
+
+                foreach ($cursosDisponiveis as $curso) {
+                    if (array_key_exists($curso, $cursosExibidos)) {
+                        echo '<li class="course-box"><label for="' . $curso . '">' . $cursosExibidos[$curso] . ': </label><input type="radio" id="' . $curso . '" name="curso"></li>';
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+        <button class="continue-button">Continuar Inscrição</button>
     </div>
-
-    <div class="category-section">
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Bateria<br>A partir de 12 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Teclado<br>De 12 a 40 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Violão<br>De 12 a 40 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Canto<br>A partir de 10 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Teatro<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Flauta<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Violino<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
+    <div class="content">
+        <!-- Conteúdo principal do site aqui -->
     </div>
+    <script>
+        // Obtém todos os radio buttons dentro da lista de cursos
+        const radioButtons = document.querySelectorAll('.menu .course-list input[type="radio"]');
 
-    <div class="category-section">
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Viola<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
+        // Adiciona um evento de clique a cada radio button
+        radioButtons.forEach(radio => {
+            radio.addEventListener('click', function() {
+                // Remove a classe 'selected' de todos os <li>
+                const listItems = document.querySelectorAll('.menu .course-list li');
+                listItems.forEach(item => {
+                    item.classList.remove('selected');
+                });
 
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Trompa<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
+                // Adiciona a classe 'selected' ao <li> correspondente ao radio button selecionado
+                const listItem = this.closest('li');
+                listItem.classList.add('selected');
+            });
+        });
+    </script>
 
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Trompete<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Saxofone<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Contrabaixo<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Violoncelo<br>De 07 a 30 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th><a href="inscricao.php">Ballet<br>A partir de 06 anos</a></th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div class="category-section">
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Ballet Que Dança<br>A partir de 15 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Ballet Fitness<br>A partir de 17 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Dança Contemporânea<br>A partir de 6 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Dança de Salão<br>A partir de 15 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Dança do Ventre<br>A partir de 15 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Pilates<br>A partir de 17 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Zumba<br>A partir de 15 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div class="category-section">
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Teakwondo<br>8 a 17 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Futsal<br>6 a 17 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Karatê<br>6 a 17 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Natação<br>A partir de 8 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Hidroginástica<br>A partir de 18 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Capoeira<br>A partir de 6 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-
-        <table class="category-table">
-            <thead>
-                <tr>
-                    <th>
-                        <a href="inscricao.php">Inglês<br>A partir de 6 anos</a>
-                    </th>
-                </tr>
-            </thead>
-        </table>
-    </div>
 
 </body>
 
