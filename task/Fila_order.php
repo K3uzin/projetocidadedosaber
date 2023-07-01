@@ -7,26 +7,26 @@
     INNER JOIN FILA ON inscricao.cod_inscricao = fila.cod_inscricao 
     WHERE 'posicao_fila' = MIN(posicao_fila) AND fila.situacao = espera LIMIT 1");
     $sql_give_senha = ("UPDATE incricao SET cod_senha = $senha WHERE cod_senha = null AND situacao = 'apto'LIMIT 1");
-    $sql_senha = ("SELECT cod_senha FROM senha WHERE situcao = diponivel LIMIT 1");
+    $sql_senha = ("SELECT cod_senha FROM senha WHERE situcao = 'disponivel' LIMIT 1");
     $sql_senha_turnoff = ("UPDATE senha 
     SET senha.situacao = 'indisponivel'
     FROM senha INNER JOIN incricao ON inscricao.cod_senha = senha.cod_senha");
     $sql_senha_check = ("SELECT cod_senha  FROM senha WHERE situacao = 'disponivel'");
     $sql_notificao = ("SELECT nome AND email FROM inscricao WHERE notificao = 'N'")
 
-    while($result = mysqli_fatch_assoc($sql_senha_check)){
+    while($result = mysqli_fetch_assoc($sql_senha_check)){
 
         $senha = $sql_senha
         $conexao->query($sql_promove);
         $conexao->query($give_senha);
         $conexao->query($sql_senha_turnoff);
     }
-    while($result = mysqli_fatch_assoc($sql_notificao)){
+    while($result = mysqli_fetch_assoc($sql_notificao)){
 
         $nome = $result['nome'];
         $email = $result['email'];
         $assunto = "Parabéns, $nome! Sua senha foi disponibilizada";
-        $mensage = "Prezado(a) $nome,
+        $mensagem = "Prezado(a) $nome,
         <br>Gostaríamos de parabenizá-lo(a) por ter conseguido uma senha após ter aguardado na nossa fila de espera.</br>
             Sabemos que sua dedicação e paciência valeram a pena! Agora, você está um passo mais próximo de garantir sua vaga no curso desejado.
         <br>É importante lembrar que você tem um prazo de 15 dias para realizar sua inscrição.</br>
@@ -36,5 +36,5 @@
         <br>Agradecemos pela sua confiança em nossa instituição e desejamos sucesso em sua inscrição.</br>
         <br>Atenciosamente, Cidade do Saber";
         $remetente = "siscon@siscon-ba.com.br";
-        mail($email,$senha,$menssagen,$remetente);
+        mail($email,$assunto,$mensagem,$remetente);
     }
