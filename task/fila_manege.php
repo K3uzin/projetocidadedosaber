@@ -19,7 +19,7 @@
     $sql_erese_fila = ("DELETE * FROM fila WHERE situacao = 'invalida'");
     $sql_update_senha = ("UPDATE senha set situacao = 'vencida' WHERE cod_senha = $senha");  
     $sql_retrive_senha = ("UPDATE incricao and senha 
-    SET inscricao.cod_senha = null AND senha.situaco = disponivel 
+    SET inscricao.cod_senha = null AND senha.situacao = disponivel 
     FROM incricao INNER JOIN senha ON incricao.cod_senha = senha.cod_senha 
     WHERE situacao = 'expirado'"); 
     $sql_check_incricao("SELECT data_incricao and cod_inscricao AND email and nome FROM inscricao")
@@ -41,11 +41,13 @@
         $data = $result['data_inscricao'];
         if(function data_expire_check($data,15)){
             
-            $mensage = "olá $nome, infelimente a prazo de incrição da sua senha expirou, logo a sua senha retirada no site do cidade do 
-            cidade saber no dia $data não é mais valida! se ainda tiver interese na vaga porvafor retire outa senha."
+            $mensage = "olá $nome, os alunos que retiraram senha para realizar inscrição em nossos cursos têm 15 dias para se inscreverem,
+            e infelizmente o prazo da sua senha de 15 dias expirou, logo a sua senha retirada no site do cidade do cidade saber no dia $data
+            não é mais valida! 
+            <br> Caso ainda tenha interesse na vaga, por favor, retire outra senha e aguarde na fila de espera";
             $assunto = "expiração da senha";
             $remetente = "cidadedosaber@gmail.com";
-            mail($email,$assunto,$mensagen,$rementente);
+            mail($email,$assunto,$mensagen,$remetente);
             $conexao->query($sql_expirate_inscricao);  
         }
     }
