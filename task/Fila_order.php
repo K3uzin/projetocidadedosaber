@@ -25,9 +25,16 @@
 
         $nome = $result['nome'];
         $email = $result['email'];
-        $assunto = "senha";
-        $mensage = "Parabéns $nome! (Você foi já está inserido na nossa fila de espera, acompanhe sua posição atual 
-        em nosso portal)";
-        $remetente = "cidadedosaber@gmail.com";
+        $assunto = "Parabéns, $nome! Sua senha foi disponibilizada";
+        $mensage = "Prezado(a) $nome,
+        <br>Gostaríamos de parabenizá-lo(a) por ter conseguido uma senha após ter aguardado na nossa fila de espera.</br>
+            Sabemos que sua dedicação e paciência valeram a pena! Agora, você está um passo mais próximo de garantir sua vaga no curso desejado.
+        <br>É importante lembrar que você tem um prazo de 15 dias para realizar sua inscrição.</br>
+            Após esse período, sua senha expirará e será liberada para outros estudantes. 
+            Portanto, recomendamos que você acesse nosso portal o mais breve possível e conclua sua inscrição.
+        <br>Caso tenha alguma dúvida ou precise de qualquer assistência adicional, nossa equipe estará disponível para ajudá-lo(a). Não hesite em entrar em contato conosco.</br>
+        <br>Agradecemos pela sua confiança em nossa instituição e desejamos sucesso em sua inscrição.</br>
+        <br>Atenciosamente, Cidade do Saber";
+        $remetente = "siscon@siscon-ba.com.br";
         mail($email,$senha,$menssagen,$remetente);
     }
