@@ -30,20 +30,27 @@ Class User{
       
         $base_attbs = array();
         if(!$this->name){
-            $base_attbsv = $this->name;
+            $base_attbs = $this->name;
         }
         if(!$this->cpf){
-            $base_attbsv = $this->cpf;
+            $base_attbs = $this->cpf;
         }
         if(!$this->rg){
-            $base_attbsv = $this->rg;
+            $base_attbs = $this->rg;
         }
         if(!$this->age){
-            $base_attbsv = $this->age;
+            $base_attbs = $this->age;
         }
         if(!$this->phone){
-            $base_attbsv = $this->phone;
+            $base_attbs = $this->phone;
         }
+
+        /*verificar se é dessa forma:
+                if(!$this->phone){
+            $base_attbs[] = $this->phone;
+            COM CHAVES
+        }
+        */
 
         return $base_attbs;
     }
