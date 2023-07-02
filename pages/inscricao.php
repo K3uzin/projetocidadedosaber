@@ -11,7 +11,8 @@
 <body>
     
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h1>Curso Desejado</h1>
+    <div class="container">
+        <h1>Formulário De Inscrição</h1>
 
         <label for="nome_responsavel">Nome do Responsável:</label><br>
         <input type="text" id="nome_responsavel" name="nome_responsavel" required><br> <br>
@@ -32,6 +33,8 @@
         <input type="email" id="email" name="email" required>   <br> <br>
 
         <input type="submit" value="Enviar">
+
+    </div>
     </form>
 
     <?php
