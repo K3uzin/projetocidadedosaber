@@ -54,7 +54,31 @@ Class User{
 
         return $base_attbs;
     }
-    public function 
+      public function inscrever($nome_reponsavel,$nome,$cpf,$rg,$email,$data,$turma){
+        
+        $result = $conexao->query("SELECT cod_inscricao FROM inscricao 
+        WHERE nome = $nome AND cpf = $cpf AND rg = $rg AND email = $email AND cod_turma = $turma");
+
+        if($result != null){
+         
+           (/*mensagen que a inscricao ja exite*/)
+        }else{
+
+            $senha = $conexao->query("SELECT cod_senha FROM senha WHERE cod_turma = $turma AND situacao = 'diponivel' LIMIT 1");
+            if($rusult == null){
+                
+                $conexao->prepare("INSERT INTO inscriacao(nome_reponsavel,nome,cpf,rg,email,data_inscricao VALUES (?,?,?,?,?,?)");
+                $conexao->bind_param("s,s,i,i,,s,d"$nome_responsavel,$nome,$cpf,$rg,$email,$data);
+                $conexao->execute()
+                return $senha = false
+            }
+            $senha = $result
+            $conexao->prepare("INSERT INTO inscriacao(cod_senha,nome_reponsavel,nome,cpf,rg,email,data_inscricao VALUES (?,?,?,?,?,?,?)")
+            $conexao->bind_param("i,s,s,i,i,s,d"$senha,$nome_responsavel,$nome,$cpf,$rg,$email,$data )
+            $conexao->execute()
+            return $senha = true
+        }
+    }
 }
 
 
