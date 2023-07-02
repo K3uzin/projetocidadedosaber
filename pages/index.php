@@ -37,7 +37,7 @@
                 ?>
             </ul>
         </div>
-        <button class="continue-button">Continuar Inscrição</button>
+        <a href="../pages/inscricao.php"><button class="continue-button">Continuar Inscrição</button>
     </div>
     <div class="content">
         <!-- Conteúdo principal do site aqui -->
