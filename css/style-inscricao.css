@@ -9,12 +9,18 @@ body {
 }
 
 .container {
-    width: 400px;
+    width: 370px;
     padding: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 3px solid #00D084;
-    border-radius: 10px;
+    border-radius: 30px;
     background-color: #00D084;
     font-family: Verdana, sans-serif;
+    
+    
    
 }
 
@@ -47,7 +53,7 @@ input[type="email"] {
 
 input[type="submit"] {
     width: 80%;
-    padding: 10px;
+    padding: 8px;
     background-color: #E4851F;
     color: #ffff;
     border: none;
@@ -55,6 +61,8 @@ input[type="submit"] {
     cursor: pointer;
     font-family: Verdana, sans-serif;
     font-size: 14px;
+    margin-top: 10px;
+    
     
 }
 
