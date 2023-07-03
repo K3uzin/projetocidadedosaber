@@ -15,24 +15,24 @@
         <h1>Formulário De Inscrição</h1>
 
         <label for="nome_responsavel">Nome do Responsável:</label><br>
-        <input type="text" id="nome_responsavel" name="nome_responsavel" required><br> <br>
+        <input type="text" id="nome_responsavel" name="nome_responsavel" required><br> 
 
         <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br> <br>
+        <input type="text" id="nome" name="nome" required><br> 
 
         <label for="rg">RG:</label><br>
-        <input type="text" id="rg" name="rg" required><br> <br>
+        <input type="text" id="rg" name="rg" required><br> 
 
         <label for="cpf">CPF:</label><br>
-        <input type="text" id="cpf" name="cpf" required><br> <br>
+        <input type="text" id="cpf" name="cpf" required><br> 
 
         <label for="data_nascimento">Data de Nascimento: </label><br> 
-        <input type="date" id="data_nascimento" name="data_nascimento" required><br> <br>
+        <input type="date" id="data_nascimento" name="data_nascimento" required><br> 
 
         <label for="email">E-mail:</label> <br>
-        <input type="email" id="email" name="email" required>   <br> <br>
+        <input type="email" id="email" name="email" required>   <br> 
 
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar"> <br> <br> 
 
     </div>
     </form>
