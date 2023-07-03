@@ -18,15 +18,31 @@
             <ul>
                 <?php
                 $cursosDisponiveis = array(
-                    'bateria',
-                    'teclado',
-                    'violao',
+                    'bateria', 'teclado', 'violao', 'Canto',
+                    'Teatro', 'Flauta', 'Violino', 'Viola',
+                    'Trompa', 'Trompete', 'Saxofone', 'Contrabaixo',
+                    'Violoncelo', 'Ballet', 'Ballet Que Dança', 'Ballet Fitness',
+                    'Dança Contemporânea', 'Dança de Salão', 'Dança do ventre', 'Pilates',
+                    'Zumba', 'Teakwondo', 'Futsal', 'Karatê',
+                    'Natação', 'Hidroginástica', 'Capoeira', 'Inglês'
+                    
                 );
 
                 $cursosExibidos = array(
-                    'bateria' => 'Bateria',
-                    'teclado' => 'Teclado',
-                    'violao' => 'Violão',
+                    'bateria' => 'Bateria', 'teclado' => 'Teclado',
+                    'violao' => 'Violão', 'Canto' => 'Canto',
+                    'Teatro' => 'Teatro', 'Flauta' => 'Flauta',
+                    'Violino' => 'Violino', 'Viola' => 'Viola',
+                    'Trompa' => 'Trompa', 'Trompete' => 'Trompete',
+                    'Saxofone' => 'Saxofone', 'Contrabaixo' => 'Contrabaixo',
+                    'Violoncelo' => 'Violoncelo', 'Ballet' => 'Ballet',
+                    'Ballet Que Dança' => 'Ballet Que Dança', 'Ballet Fitness' => 'Ballet Fitness',
+                    'Dança Contemporânea' => 'Dança Contemporânea', 'Dança de Salão' => 'Dança de Salão',
+                    'Dança do ventre' => 'Dança do ventre', 'Pilates' => 'Pilates',
+                    'Zumba' => 'Zumba', 'Teakwondo' => 'Teakwondo',
+                    'Futsal' => 'Futsal', 'Karatê' => 'Karatê',
+                    'Natação' => 'Natação', 'Hidroginástica' => 'Hidroginástica',
+                    'Capoeira' => 'Capoeira', 'Inglês' => 'Inglês',
                 );
 
                 foreach ($cursosDisponiveis as $curso) {
