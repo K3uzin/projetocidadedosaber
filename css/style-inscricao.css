@@ -1,10 +1,18 @@
+:root {
+    --verde-padrao: #00c167;
+}
+
 body {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 100px 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     background-image: url("../img/inscricao.jpg");
     background-size: cover;
+    -o-background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -18,6 +26,9 @@ body::after {
     background-color: rgba(0, 0, 0, 0.5);
     /* Ajuste o último valor (0.5) para controlar a intensidade do escurecimento */
     z-index: -1;
+    background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -27,13 +38,13 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 3px solid #00D084;
+    border: 3px solid var(--verde-padrao);
     border-radius: 30px;
-    background-color: #00D084;
+    background-color: var(--verde-padrao);
+    padding: 20px;
+    margin-bottom: 20px;
     font-family: Verdana, sans-serif;
     
-    
-   
 }
 
 h1{
@@ -72,7 +83,7 @@ input[type="submit"] {
     border-radius: 10px;
     cursor: pointer;
     font-family: Verdana, sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 10px;
     
     
