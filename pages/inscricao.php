@@ -10,7 +10,7 @@
     
 <body>
     
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="../backend_pages/inscricaoB.php <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <div class="container">
         <h2>Formulário De Inscrição</h2>
 
