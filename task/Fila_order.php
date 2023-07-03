@@ -6,17 +6,17 @@
     FROM inscricao 
     INNER JOIN FILA ON inscricao.cod_inscricao = fila.cod_inscricao 
     WHERE 'posicao_fila' = MIN(posicao_fila) AND fila.situacao = espera LIMIT 1");
-    $sql_give_senha = ("UPDATE incricao SET cod_senha = $senha WHERE cod_senha = null AND situacao = 'apto'LIMIT 1");
-    $sql_senha = ("SELECT cod_senha FROM senha WHERE situcao = 'disponivel' LIMIT 1");
+    $sql_give_senha = ("UPDATE inscricao SET cod_senha = $senha WHERE cod_senha = null AND situacao = 'apto'LIMIT 1");
+    $sql_senha = ("SELECT cod_senha FROM senha WHERE situacao = 'disponivel' LIMIT 1");
     $sql_senha_turnoff = ("UPDATE senha 
     SET senha.situacao = 'indisponivel'
-    FROM senha INNER JOIN incricao ON inscricao.cod_senha = senha.cod_senha");
+    FROM senha INNER JOIN inscricao ON inscricao.cod_senha = senha.cod_senha");
     $sql_senha_check = ("SELECT cod_senha  FROM senha WHERE situacao = 'disponivel'");
     $sql_notificao = ("SELECT nome AND email FROM inscricao WHERE notificao = 'N'")
 
     while($result = mysqli_fetch_assoc($sql_senha_check)){
 
-        $senha = $sql_senha
+        $senha = $sql_senha;
         $conexao->query($sql_promove);
         $conexao->query($give_senha);
         $conexao->query($sql_senha_turnoff);
