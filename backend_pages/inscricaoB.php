@@ -1,67 +1,68 @@
 <?php
 
-    require_once("../Database/conexao.php");
-    require_once("../classes/user.class.php");
-    function validarCPF($cpf) {
-        // Remove caracteres não numéricos
-        $cpf = preg_replace('/[^0-9]/', '', $cpf);
-        
-        // Verifica se o CPF possui 11 dígitos
-        if (strlen($cpf) !== 11) {
-            return false;
-        }
-        
-        // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
-        if (preg_match('/(\d)\1{10}/', $cpf)) {
-            echo "<script>
-                window.onload = function() {
-                    alert('CPF Inválido');
-                    history.back(); 
-                };
-            </script>";
-        exit();
-            return false;
-        }
-        
-        // Calcula o primeiro dígito verificador
-        $soma = 0;
-        for ($i = 0; $i < 9; $i++) {
-            $soma += intval($cpf[$i]) * (10 - $i);
-        }
-        $resto = $soma % 11;
-        $digito1 = ($resto < 2) ? 0 : 11 - $resto;
-        
-        // Calcula o segundo dígito verificador
-        $soma = 0;
-        for ($i = 0; $i < 10; $i++) {
-            $soma += intval($cpf[$i]) * (11 - $i);
-        }
-        $resto = $soma % 11;
-        $digito2 = ($resto < 2) ? 0 : 11 - $resto;
-        
-        // Verifica se os dígitos calculados são iguais aos dígitos informados
-        if ($cpf[9] != $digito1 || $cpf[10] != $digito2) {
-            return false;
-        }
-        
-        return true;
+//require_once("../Database/conexao.php");
+//require_once("../classes/user.class.php");
+
+function validarCPF($cpf) {
+    // Remove caracteres não numéricos
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);
+
+    // Verifica se o CPF possui 11 dígitos
+    if (strlen($cpf) !== 11) {
+        return false;
     }
-    if(!isset($_POST)){
-        
-        header("../pages/incricao")
+
+    // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
+    if (preg_match('/(\d)\1{10}/', $cpf)) {
+        echo "<script>
+            window.onload = function() {
+                alert('CPF Inválido');
+                window.location.href = '../pages/inscricao.php';
+            };
+        </script>";
+        return false;
+        exit(); // opcionalmente, você pode manter o exit() aqui
+    }
+
+    // Calcula o primeiro dígito verificador
+    $soma = 0;
+    for ($i = 0; $i < 9; $i++) {
+        $soma += intval($cpf[$i]) * (10 - $i);
+    }
+    $resto = $soma % 11;
+    $digito1 = ($resto < 2) ? 0 : 11 - $resto;
+
+    // Calcula o segundo dígito verificador
+    $soma = 0;
+    for ($i = 0; $i < 10; $i++) {
+        $soma += intval($cpf[$i]) * (11 - $i);
+    }
+    $resto = $soma % 11;
+    $digito2 = ($resto < 2) ? 0 : 11 - $resto;
+
+    // Verifica se os dígitos calculados são iguais aos dígitos informados
+    if ($cpf[9] != $digito1 || $cpf[10] != $digito2) {
+        return false;
+    }
+
+    return true;
+}
+
+if (!isset($_POST)) {
+    header("Location:../pages/inscricao.php");
 
     }else{
         
-        $turma = $_POST["cod_turma"]
-        $nome_reponsavel = $_POST['nome_reponsavel'];
-        $nome = $_POST['nome']
+        $turma = $_POST['cod_turma'];
+        $nome_responsavel = $_POST['nome_responsavel'];
+        $nome = $_POST['nome'];
         $cpf = $_POST['cpf'];
         $rg = $_POST['rg'];
         $email = $_POST['email'];
-        $data_nascimento = $_POST['dataN']
-        $idade_maxima = $_POST['idade_maxima']
-        $idade_minima = $_POST['idade_minima']
-        $data_incricao = getdata();
+        $data_nascimento = $_POST['dataN'];
+        $idade_maxima = $_POST['idade_maxima'];
+        $idade_minima = $_POST['idade_minima'];
+        $data_inscricao = getdata();
 
         if($nome_responsavel == null){
             echo "<script>
@@ -129,7 +130,7 @@
             </script>";
         exit();
         }
-        if(starlen($email) > 90){
+        if(strlen($email) > 90){
             echo "<script>
                 window.onload = function() {
                     alert('Mensagem muito longa');
@@ -163,7 +164,7 @@
                 </script>";
             exit();
         }
-        if(!ValidarCPF($cpf)){
+        if(!validarCPF($cpf)){
            echo "<script>
                     window.onload = function() {
                         alert('CPF Inválido');
@@ -179,7 +180,7 @@
                 </script>";
             exit();
         }
-        if{}//verivicação de rg
+        
         $idade = getdata() - $data_nascimento;
         if($idade > $idade_maxima){
             echo "<script>
@@ -199,19 +200,19 @@
         }
         $user = $nome;
         $user = new User;
-        $user->inscrever($nome_reponsavel,$nome,$cpf,$rg,$email,$data,$turma);
+        $user->inscrever($nome_responsavel,$nome,$cpf,$rg,$email,$data,$turma);
         if($senha == true){
             $mensagem = "É com grande satisfação que informamos que sua senha para o curso desejado foi retirada com sucesso.
                         Parabéns pela inscrição!
                     <br>Agora você está oficialmente registrado(a) para participar do curso [Nome do Curso].
                         Aproveitamos para reforçar algumas informações importantes:</br>
-                    <br><p style="font-weight: bold;">1</p> - Prazo de Inscrição: Você tem um prazo de 15 dias para realizar a sua inscrição definitiva no curso.
+                    <br><p style='font-weight: bold;'>1</p> - Prazo de Inscrição: Você tem um prazo de 15 dias para realizar a sua inscrição definitiva no curso.
                         É essencial que você siga todas as orientações fornecidas para garantir sua participação.
                         Caso não efetue a inscrição dentro desse prazo, infelizmente sua vaga será perdida.</br>
-                    <br><p style="font-weight: bold;">2</p>Informações Adicionais: Fique atento(a) às comunicações e atualizações sobre o curso.
+                    <br><p style='font-weight: bold;'>2</p>Informações Adicionais: Fique atento(a) às comunicações e atualizações sobre o curso.
                         Verifique regularmente o sistema de retirada de senhas e suas notificações para obter
                         informações sobre datas, horários, locais e quaisquer requisitos específicos relacionados ao curso.
-                    <br><p style="font-weight: bold;">3</p>Cancelamento da Inscrição: Caso, por algum motivo, você decida não participar do curso,
+                    <br><p style='font-weight: bold;''>3</p>Cancelamento da Inscrição: Caso, por algum motivo, você decida não participar do curso,
                          é fundamental que você cancele sua inscrição o mais rápido possível. Dessa forma, poderemos oferecer a vaga a outro aluno em espera.</br>
                      <br>Estamos ansiosos para tê-lo(a) conosco no curso e proporcionar uma experiência enriquecedora. Se surgirem dúvidas ou se precisar de assistência adicional,
                         não hesite em entrar em contato conosco através do suporte técnico disponibilizado no sistema.
