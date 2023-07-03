@@ -12,7 +12,7 @@
     
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <div class="container">
-        <h1>Formulário De Inscrição</h1>
+        <h2>Formulário De Inscrição</h2>
 
         <label for="nome_responsavel">Nome do Responsável:</label><br>
         <input type="text" id="nome_responsavel" name="nome_responsavel" required><br> 
