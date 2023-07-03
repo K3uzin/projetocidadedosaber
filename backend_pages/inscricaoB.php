@@ -13,6 +13,13 @@
         
         // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
         if (preg_match('/(\d)\1{10}/', $cpf)) {
+            echo "<script>
+                window.onload = function() {
+                    alert('CPF Inválido');
+                    history.back(); 
+                };
+            </script>";
+        exit();
             return false;
         }
         
@@ -123,7 +130,13 @@
         exit();
         }
         if(starlen($email) > 90){
-            "mensagen de email muito comprido"
+            echo "<script>
+                window.onload = function() {
+                    alert('Mensagem muito longa');
+                    history.back(); 
+                };
+            </script>";
+        exit();
         }
         if($email == null){
             echo "<script>
@@ -143,36 +156,95 @@
             exit();
         }
         if($cpf == null){
-            //mensagen se campo de cpf vazio
+            echo "<script>
+                    window.onload = function() {
+                        alert('Este campo não pode ficar vazio');
+                    };
+                </script>";
+            exit();
         }
         if(!ValidarCPF($cpf)){
-            //mensagen de cpf invalido
+           echo "<script>
+                    window.onload = function() {
+                        alert('CPF Inválido');
+                    };
+                </script>";
+            exit();
         }
         if($rg == null){
-            // mensagen de rg vazio
+            echo "<script>
+                    window.onload = function() {
+                        alert('Este campo não pode ficar vazio');
+                    };
+                </script>";
+            exit();
         }
         if{}//verivicação de rg
         $idade = getdata() - $data_nascimento;
         if($idade > $idade_maxima){
-            //mensagen de fora da faixa etaria
+            echo "<script>
+                    window.onload = function() {
+                        alert('Desculpe, você excedeu a idade máxima permitida');
+                    };
+                </script>";
+            exit();
         }
         if($idade < $idade_minima){
-            //mensagen de fora da faixa etaria
+            echo "<script>
+                    window.onload = function() {
+                        alert('Desculpe, você não atingiu a idade mínima necessária');
+                    };
+                </script>";
+            exit();
         }
         $user = $nome;
         $user = new User;
         $user->inscrever($nome_reponsavel,$nome,$cpf,$rg,$email,$data,$turma);
         if($senha == true){
-            $mensagem = "parabens $nome,(mensagen de que se increveu com sucesso é recebeu a senha)";
-            $assunto = "inscrição";
+            $mensagem = "É com grande satisfação que informamos que sua senha para o curso desejado foi retirada com sucesso.
+                        Parabéns pela inscrição!
+                    <br>Agora você está oficialmente registrado(a) para participar do curso [Nome do Curso].
+                        Aproveitamos para reforçar algumas informações importantes:</br>
+                    <br><p style="font-weight: bold;">1</p> - Prazo de Inscrição: Você tem um prazo de 15 dias para realizar a sua inscrição definitiva no curso.
+                        É essencial que você siga todas as orientações fornecidas para garantir sua participação.
+                        Caso não efetue a inscrição dentro desse prazo, infelizmente sua vaga será perdida.</br>
+                    <br><p style="font-weight: bold;">2</p>Informações Adicionais: Fique atento(a) às comunicações e atualizações sobre o curso.
+                        Verifique regularmente o sistema de retirada de senhas e suas notificações para obter
+                        informações sobre datas, horários, locais e quaisquer requisitos específicos relacionados ao curso.
+                    <br><p style="font-weight: bold;">3</p>Cancelamento da Inscrição: Caso, por algum motivo, você decida não participar do curso,
+                         é fundamental que você cancele sua inscrição o mais rápido possível. Dessa forma, poderemos oferecer a vaga a outro aluno em espera.</br>
+                     <br>Estamos ansiosos para tê-lo(a) conosco no curso e proporcionar uma experiência enriquecedora. Se surgirem dúvidas ou se precisar de assistência adicional,
+                        não hesite em entrar em contato conosco através do suporte técnico disponibilizado no sistema.
+                        Parabéns mais uma vez e desejamos muito sucesso em sua jornada educacional!</br>
+                        <br>Atenciosamente,
+                        <br>Cidade do Saber.";
+            $assunto = "Confirmação de Retirada de Senha - Inscrição Aceita";
             $remetente = "(email do cidade do saber)";
-            mail($email,$assunto,$mensagen,$remetente);
+            mail($email,$assunto,$mensagem,$remetente);
         }
         if($senha == false){
-            $mensagem = "parabens $nome,(mensagen de que se increveu com sucesso porem explica que não tem senha diponivel e que sera necessario expertaar na fila)";
-            $assunto = "inscrição";
+            $mensagem = "Prezado(a) $nome,
+            <br>Agradecemos por se inscrever no nosso sistema de retirada de senhas para o curso desejado.
+            Estamos entrando em contato para confirmar que sua inscrição foi realizada com sucesso.</br>
+        <br>No entanto, informamos que, no momento, todas as vagas para o curso escolhido já foram preenchidas.
+            Como resultado, você será colocado(a) na fila de espera para aguardar a desistência de outros alunos ou a abertura de novas vagas.</br>
+        <br>A fila de espera é organizada de acordo com a ordem de chegada, dando prioridade aos alunos que estão esperando há mais tempo. 
+            Assim que uma vaga se tornar disponível, ela será oferecida ao próximo aluno na fila de espera. 
+            É importante ressaltar que não há um prazo exato para o avanço na fila, pois depende das circunstâncias individuais.</br>
+        <br>Enquanto aguarda, recomendamos que você esteja atento(a) ao sistema de retirada de senhas, pois, caso uma vaga seja liberada,
+            você será notificado(a) e terá a oportunidade de aceitá-la ou recusá-la.
+            Lembre-se de que é necessário responder dentro do prazo estabelecido para garantir a sua vaga.</br>
+        <br>Continuaremos trabalhando diligentemente para oferecer vagas adicionais e possibilitar sua participação no curso escolhido. 
+            Caso você tenha interesse em outros cursos disponíveis, pode aproveitar a oportunidade para retirar senhas para eles enquanto aguarda na fila de espera.</br>
+        <br>Agradecemos pela sua compreensão e paciência durante esse processo. 
+            Estamos empenhados em fornecer a melhor experiência educacional possível para todos os alunos.</br>
+        <br>Caso você tenha alguma dúvida ou precise de mais informações, não hesite em entrar em 
+            contato conosco através do suporte técnico disponibilizado no sistema.</br>
+        <br>Atenciosamente,
+        <br>Cidade do Saber";
+            $assunto = "Confirmação de Inscrição e Informação sobre Fila de Espera";
             $remetente = "(email do cidade do saber)";
-            mail($email,$assunto,$mensagen,$remetente);
+            mail($email,$assunto,$mensagem,$remetente);
 
         }
 
