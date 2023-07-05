@@ -31,6 +31,7 @@
 
         <label for="email">E-mail:</label> <br>
         <input type="email" id="email" name="email" required>   <br> 
+        <input type="hidden" name="data_oculta" value="<?php echo date('Y-m-d'); ?>">
 
         <input type="submit" value="Enviar"> <br> <br> 
 
