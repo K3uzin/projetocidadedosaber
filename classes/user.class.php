@@ -13,7 +13,7 @@ Class User{
      */
     private $status; /* status de analise de aprovação */
     private $queue; /* atributo que definira o status na fila */
-    private $cursos_inscrito[]; /* atributo que e feito especificamenente para ser um vetor, e deve conter todos os cursos ao quais o usuario se increveu */
+    private $cursos_inscrito; /* atributo que e feito especificamenente para ser um vetor, e deve conter todos os cursos ao quais o usuario se increveu */
 
     /* função criada para dar set em todos os atributo basicos da classe user */
     public function set_attbs($name,$cpf,$rg,$age,$phone){
@@ -54,30 +54,37 @@ Class User{
 
         return $base_attbs;
     }
-      public function inscrever($nome_reponsavel,$nome,$cpf,$rg,$email,$data,$turma){
-        
-        $result = $conexao->query("SELECT cod_inscricao FROM inscricao 
-        WHERE nome = $nome AND cpf = $cpf AND rg = $rg AND email = $email AND cod_turma = $turma");
 
-        if($result != null){
-         
-           (/*mensagen que a inscricao ja exite*/)
-        }else{
-
-            $senha = $conexao->query("SELECT cod_senha FROM senha WHERE cod_turma = $turma AND situacao = 'diponivel' LIMIT 1");
-            if($rusult == null){
-                
-                $conexao->prepare("INSERT INTO inscriacao(nome_reponsavel,nome,cpf,rg,email,data_inscricao VALUES (?,?,?,?,?,?)");
-                $conexao->bind_param("s,s,i,i,,s,d"$nome_responsavel,$nome,$cpf,$rg,$email,$data);
-                $conexao->execute()
-                return $senha = false
-            }
-            $senha = $result
-            $conexao->prepare("INSERT INTO inscriacao(cod_senha,nome_reponsavel,nome,cpf,rg,email,data_inscricao VALUES (?,?,?,?,?,?,?)")
-            $conexao->bind_param("i,s,s,i,i,s,d"$senha,$nome_responsavel,$nome,$cpf,$rg,$email,$data )
-            $conexao->execute()
-            return $senha = true
+    public function inscrever($nome_responsavel, $nome, $cpf, $rg, $email){
+        $conexao = new mysqli("localhost","root","","cds");
+        if ($conexao->connect_error) {
+            die("Erro na conexão com o banco de dados: " . $conexao->connect_error);
         }
+        
+        $result = $conexao->query("SELECT cod_turma FROM turma 
+            WHERE nome = '$nome' AND cpf = '$cpf' AND rg = '$rg' AND email = '$email'");
+    
+        if($result->num_rows > 0){
+            // Dados já existem
+        } else {
+            $stmt = $conexao->prepare("INSERT INTO turma (nome_responsavel, nome, cpf, rg, email) VALUES (?, ?, ?, ?, ?)");
+            $data = date("Y-m-d");
+            $stmt->bind_param("ssiss", $nome_responsavel, $nome, $cpf, $rg, $email);
+            $stmt->execute();
+    
+            if ($stmt->affected_rows > 0) {
+                // Inserção bem-sucedida
+                return $senha = false;
+            } else {
+                // Erro ao inserir os dados
+                echo "Erro ao inserir os dados: " . $conexao->error;
+                return $senha = false;
+            }
+        }
+
+        header("location:../pages/inscricao.php");
+        $conexao->close();
+       
     }
 }
 
