@@ -55,21 +55,20 @@ Class User{
         return $base_attbs;
     }
 
-    public function inscrever($nome_responsavel, $nome, $cpf, $rg, $email){
+    public function inscrever($nome_responsavel, $nome, $cpf, $rg, $email, $data_entrada){
         $conexao = new mysqli("localhost","root","","cds");
         if ($conexao->connect_error) {
             die("Erro na conexão com o banco de dados: " . $conexao->connect_error);
         }
         
         $result = $conexao->query("SELECT cod_turma FROM turma 
-            WHERE nome = '$nome' AND cpf = '$cpf' AND rg = '$rg' AND email = '$email'");
+            WHERE nome = '$nome' AND cpf = '$cpf' AND rg = '$rg' AND email = '$email' AND '$data_entrada'");
     
         if($result->num_rows > 0){
             // Dados já existem
         } else {
-            $stmt = $conexao->prepare("INSERT INTO turma (nome_responsavel, nome, cpf, rg, email) VALUES (?, ?, ?, ?, ?)");
-            $data = date("Y-m-d");
-            $stmt->bind_param("ssiss", $nome_responsavel, $nome, $cpf, $rg, $email);
+            $stmt = $conexao->prepare("INSERT INTO turma (nome_responsavel, nome, cpf, rg, email, data_entrada) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssisss", $nome_responsavel, $nome, $cpf, $rg, $email, $data_entrada);
             $stmt->execute();
     
             if ($stmt->affected_rows > 0) {
