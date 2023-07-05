@@ -58,12 +58,12 @@ if (!isset($_POST)) {
         $cpf = $_POST['cpf'];
         $rg = $_POST['rg'];
         $email = $_POST['email'];
+        $data_entrada = $_POST['data_entrada'];
 
 
         //$data_nascimento = $_POST['dataN'];
         //$idade_maxima = $_POST['idade_maxima'];
        // $idade_minima = $_POST['idade_minima'];
-        //$data_inscricao = "07/07/2023";
 
         if($nome_responsavel == null){
             echo "<script>
