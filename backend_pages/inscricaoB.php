@@ -1,7 +1,6 @@
 <?php
-
-//require_once("../Database/conexao.php");
-//require_once("../classes/user.class.php");
+require_once("../Database/conexao.php");
+require_once("../classes/user.class.php");
 
 function validarCPF($cpf) {
     // Remove caracteres não numéricos
@@ -11,7 +10,7 @@ function validarCPF($cpf) {
     if (strlen($cpf) !== 11) {
         return false;
     }
-
+        
     // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
     if (preg_match('/(\d)\1{10}/', $cpf)) {
         echo "<script>
@@ -53,16 +52,18 @@ if (!isset($_POST)) {
 
     }else{
         
-        $turma = $_POST['cod_turma'];
+        //$turma = $_POST['cod_turma'];
         $nome_responsavel = $_POST['nome_responsavel'];
         $nome = $_POST['nome'];
         $cpf = $_POST['cpf'];
         $rg = $_POST['rg'];
         $email = $_POST['email'];
-        $data_nascimento = $_POST['dataN'];
-        $idade_maxima = $_POST['idade_maxima'];
-        $idade_minima = $_POST['idade_minima'];
-        $data_inscricao = getdata();
+
+
+        //$data_nascimento = $_POST['dataN'];
+        //$idade_maxima = $_POST['idade_maxima'];
+       // $idade_minima = $_POST['idade_minima'];
+        //$data_inscricao = "07/07/2023";
 
         if($nome_responsavel == null){
             echo "<script>
@@ -80,7 +81,7 @@ if (!isset($_POST)) {
                 </script>";
             exit();
         }
-        if(strlen($nome_reponsavel) > 90){
+        if(strlen($nome_responsavel) > 90){
             echo "<script>
                     window.onload = function() {
                         alert('Nome longo');
@@ -88,15 +89,15 @@ if (!isset($_POST)) {
                 </script>";
             exit();
         }
-        $name_test = test_input($nome_responsavel);
-        if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
-        echo "<script>
-                window.onload = function() {
-                    alert('Caracteres especiais não são permitidos');
-                };
-            </script>";
-        exit();
-        }
+        //$name_test = test_input($nome_responsavel);
+       // if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
+       // echo "<script>
+         //       window.onload = function() {
+           //           alert('Caracteres especiais não são permitidos');
+             //   };
+           // </script>";
+        //exit();
+        //}
         if($nome == null){
             echo "<script>
                     window.onload = function() {
@@ -121,7 +122,7 @@ if (!isset($_POST)) {
                 </script>";
             exit();
         }
-        $name_test = test_input($nome);
+       /* $name_test = test_input($nome);
         if (!preg_match("/^[a-zA-Z-' ]*$/",$name_test)){
         echo "<script>
                 window.onload = function() {
@@ -129,7 +130,7 @@ if (!isset($_POST)) {
                 };
             </script>";
         exit();
-        }
+        }*/
         if(strlen($email) > 90){
             echo "<script>
                 window.onload = function() {
@@ -147,7 +148,7 @@ if (!isset($_POST)) {
                 </script>";
             exit();
         }
-        $email_test = test_input($email);
+        /*$email_test = test_input($email);
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             echo "<script>
                     window.onload = function() {
@@ -155,7 +156,7 @@ if (!isset($_POST)) {
                     };
                 </script>";
             exit();
-        }
+        }*/
         if($cpf == null){
             echo "<script>
                     window.onload = function() {
@@ -181,27 +182,29 @@ if (!isset($_POST)) {
             exit();
         }
         
-        $idade = getdata() - $data_nascimento;
-        if($idade > $idade_maxima){
+        //$idade = getdata() - $data_nascimento;
+        /*if($idade > $idade_maxima){
             echo "<script>
                     window.onload = function() {
                         alert('Desculpe, você excedeu a idade máxima permitida');
                     };
                 </script>";
-            exit();
+            exit();*/
         }
-        if($idade < $idade_minima){
+        /*if($idade < $idade_minima){
             echo "<script>
                     window.onload = function() {
                         alert('Desculpe, você não atingiu a idade mínima necessária');
                     };
                 </script>";
             exit();
-        }
+        }*/
+        
         $user = $nome;
         $user = new User;
-        $user->inscrever($nome_responsavel,$nome,$cpf,$rg,$email,$data,$turma);
-        if($senha == true){
+        $user->inscrever($nome_responsavel,$nome,$cpf,$rg,$email,$conexao);
+        
+        /*if($senha == true){
             $mensagem = "É com grande satisfação que informamos que sua senha para o curso desejado foi retirada com sucesso.
                         Parabéns pela inscrição!
                     <br>Agora você está oficialmente registrado(a) para participar do curso [Nome do Curso].
@@ -222,8 +225,8 @@ if (!isset($_POST)) {
             $assunto = "Confirmação de Retirada de Senha - Inscrição Aceita";
             $remetente = "(email do cidade do saber)";
             mail($email,$assunto,$mensagem,$remetente);
-        }
-        if($senha == false){
+        }*/
+        /*if($senha == false){
             $mensagem = "Prezado(a) $nome,
             <br>Agradecemos por se inscrever no nosso sistema de retirada de senhas para o curso desejado.
             Estamos entrando em contato para confirmar que sua inscrição foi realizada com sucesso.</br>
@@ -245,9 +248,9 @@ if (!isset($_POST)) {
         <br>Cidade do Saber";
             $assunto = "Confirmação de Inscrição e Informação sobre Fila de Espera";
             $remetente = "(email do cidade do saber)";
-            mail($email,$assunto,$mensagem,$remetente);
+            mail($email,$assunto,$mensagem,$remetente);*/
 
-        }
+        //}
 
 
-    }
+    
