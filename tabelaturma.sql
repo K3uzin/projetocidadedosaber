@@ -34,6 +34,7 @@ CREATE TABLE `turma` (
   `cpf` varchar(11) NOT NULL,
   `rg` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -68,6 +69,11 @@ ALTER TABLE `turma`
 ALTER TABLE `turma`
   MODIFY `cod_turma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
+
+
+ALTER TABLE `turma`
+  ADD COLUMN `data_entrada` DATE AFTER `email`;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
