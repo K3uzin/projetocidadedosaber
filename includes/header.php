@@ -19,7 +19,7 @@
       <a href="../pages/index.php" class="projeto">Cidade do Saber
         </a>
     </div>
-    <div class="ajuda"><a href="../pages/ajuda.php">Ajuda
+    <div class="ajuda"><a href="http://localhost/cds/pages/ajuda.php">Ajuda
     <img src="../img/ajuda.svg" class="logoajuda">
     </a></div>
   </header>
