@@ -2,7 +2,7 @@
  
 if(!isset($conexao)){
     ini_set ("display errors",1);
-    $conexao = new mysqli("localhost","root","","atende");
+    $conexao = new mysqli("localhost","root","","cds");
 
     if($conexao->connect_error){
         echo "erro ao conectar <br>";
