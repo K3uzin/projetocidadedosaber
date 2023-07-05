@@ -24,9 +24,15 @@
             <?php
             require_once("../Database/conexao.php");
 
-            // Consulta ao banco de dados para obter os dados de inscrição dos usuários
+            // Consulta ao banco de dados para obter os dados de inscrição dos usuários, incluindo o status
             $query = "SELECT id, nome, data_entrada, status FROM inscricoes";
             $result = mysqli_query($conexao, $query);
+
+            // Obtém o número atual de inscrições
+            $numInscricoes = mysqli_num_rows($result);
+
+            // Define o número máximo de vagas
+            $numMaxVagas = 30;
 
             // Itera sobre os resultados e cria as linhas da tabela
             while ($row = mysqli_fetch_assoc($result)) {
@@ -34,7 +40,14 @@
                 echo "<td>" . $row['id'] . "</td>";
                 echo "<td>" . $row['nome'] . "</td>";
                 echo "<td>" . $row['data_entrada'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>";
+
+                // Verifica se o número de inscrições atingiu o limite máximo
+                if ($numInscricoes >= $numMaxVagas) {
+                    echo "<td>Aguardando</td>";
+                } else {
+                    echo "<td>" . $row['status'] . "</td>";
+                }
+
                 echo "</tr>";
             }
             ?>
