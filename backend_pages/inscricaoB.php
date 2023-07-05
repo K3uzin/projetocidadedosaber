@@ -202,7 +202,7 @@ if (!isset($_POST)) {
         
         $user = $nome;
         $user = new User;
-        $user->inscrever($nome_responsavel,$nome,$cpf,$rg,$email,$conexao);
+        $user->inscrever($nome_responsavel,$nome,$cpf,$rg,$email,$conexao, $data_entrada);
         
         /*if($senha == true){
             $mensagem = "É com grande satisfação que informamos que sua senha para o curso desejado foi retirada com sucesso.
